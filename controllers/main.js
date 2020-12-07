@@ -79,6 +79,17 @@ module.exports.show_question_results=(req,res)=>{
             res.render('500',{err:err});
         })
 };
+
+module.exports.delete_survey = (req, res) => {
+    Survey.findOneAndRemove({ _id: req.params.id }, (err, survey) => {
+        if (err) {
+            res.render('500', { err: err });
+        } else {
+            res.redirect('/account/my_surveys');
+        }
+    });
+};
+
 module.exports.export=(req,res)=>{
     Survey
         .find({user: req.user._id})

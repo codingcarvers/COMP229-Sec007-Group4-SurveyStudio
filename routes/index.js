@@ -71,6 +71,9 @@ const routerJson=[
                 path: "/embed/:id",
                 controller: controllers.main.embed_survey
             },{
+                path: "/delete/:id",
+                controller: controllers.main.delete_survey
+            },{
                 path: "/account",
                 middleware: [middleware.shouldLogin],
                 children:[
